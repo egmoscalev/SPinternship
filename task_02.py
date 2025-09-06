@@ -3,6 +3,4 @@ def coincidence (mylist,myrange):
   for i in mylist:
     if i in myrange:
       newlist.append(i)
-  
-  
   return newlist

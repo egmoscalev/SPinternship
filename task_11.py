@@ -7,14 +7,15 @@
 
 class Dessert:
 
-    def __init__(self,name = 'noname',calories = 1):
+    def __init__(self,name = None ,calories = 0):
         self.set_name(name)
         self.set_calories(calories)
     
     def set_name(self,v):
         if not isinstance(v, str):
-            print("Name should be a string. Name set to 'noname'")
-            self._name = 'noname'
+            if v != None:
+                print("Name should be a string. Name set to None")
+            self._name = None
         else:
             self._name = v
     
@@ -22,9 +23,10 @@ class Dessert:
       return self._name
     
     def set_calories(self, v):
-        if not isinstance(v, int or float) or v <= 0:
-            print("Calories should be a positive number. Calories set to 1")
-            self._calories = 1
+        if not isinstance(v, int or float) or v < 0:
+            if v != None:
+                print("Calories should be a non-negative number. Calories set to 0")
+            self._calories = 0
         else:
             self._calories = v
     
@@ -35,9 +37,8 @@ class Dessert:
     def is_healthy(self):
         if (self._calories < 200):
             return True
-        else:
-            return False
+        
+        return False
     
     def is_delicious(self):
         return True
-    

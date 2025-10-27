@@ -24,7 +24,8 @@ class Dessert:
     
     def set_calories(self, v):
         if not isinstance(v, int or float) or v < 0:
-            print("Calories should be a non-negative number. Calories set to 0")
+            if v != None:
+                print("Calories should be a non-negative number. Calories set to 0")
             self._calories = 0
         else:
             self._calories = v
@@ -36,8 +37,8 @@ class Dessert:
     def is_healthy(self):
         if (self._calories < 200):
             return True
-        else:
-            return False
+        
+        return False
     
     def is_delicious(self):
         return True
@@ -62,6 +63,6 @@ class JellyBean(Dessert):
     def is_delicious(self):
         if self._flavor == 'black licorice':
             return False
-        else:
-            return True
+        
+        return True
     

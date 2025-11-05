@@ -1,3 +1,12 @@
+"""
+Анаграмма — литературны при м, состоящи в перестановке букв или звуков
+определ нного слова (или словосочетания), что в результате да т другое слово
+или словосочетание.
+Разработайте метод combine_anagrams(words_array), который принимает на вход
+массив слов и разбивает их в группы по анаграммам, регистр букв не имеет
+значения при определении анаграмм.
+"""
+
 def combine_anagrams(words_array):
   
   result = {}
@@ -8,7 +17,8 @@ def combine_anagrams(words_array):
     result.setdefault(key, [])
     result[key].append(word)
     
-  print(list(result.values()))
+  #print(list(result.values()))
+  return list(result.values())
 
 
 #test

@@ -1,4 +1,6 @@
-import string
+"""Написать метод multiply_numbers(inputs), который вернет произведение цифр,
+входящих в inputs."""
+
 
 def multiply_numbers(inputs = None):
   
@@ -11,12 +13,14 @@ def multiply_numbers(inputs = None):
     mylist = list(str(inputs))
   
     for i in mylist:
-      if i in string.digits:
+      n = ord(i)
+      if n >= 48 and n <= 57:
         if result == None:
           result = 1
         result *= int(i)
   
     print (result)
+    return (result)
       
 
 #test

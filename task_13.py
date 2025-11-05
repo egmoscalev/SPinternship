@@ -109,7 +109,7 @@ def cached(max_size = None, seconds = None):
 
 #test
 
-@cached(max_size=3, seconds=2)
+@cached(max_size=3, seconds=10)
 def slow_function(x):
     print(f"Вычисляю для {x}...")
     return x ** 2
@@ -118,7 +118,7 @@ print(slow_function(2)) # Вывод: "Вычисляю для 2..." → 4
 # Повторный вызов с теми же аргументами — берётся из кэша
 print(slow_function(2)) # Вывод: 4 (без вычисления)
 # Через 15 секунд кэш устареет, и будет новое вычисление
-time.sleep(3)
+time.sleep(15)
 print(slow_function(2)) # Вывод: "Вычисляю для 2..." → 4
 
     

@@ -81,11 +81,6 @@ class cachedCache:
             else:
                 break
 
-            
-
-
-
-
 def cached(max_size = None, seconds = None):
 
     def wrapper1(func):

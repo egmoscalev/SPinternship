@@ -16,7 +16,9 @@ def date_in_future(integer):
     date = datetime.datetime.now() + datetime.timedelta(days=integer)
 
   #print(date.strftime("%Y-%m-%d %H:%M:%S"))
-  return date
+  return date.strftime("%Y-%m-%d %H:%M:%S")
 
-date_in_future([]) # => текущая дата
-date_in_future(2) # => текущая дата + 2 дня
+a = date_in_future([]) # => текущая дата
+b = date_in_future(2) # => текущая дата + 2 дня
+
+print(type(b),b)

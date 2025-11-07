@@ -36,7 +36,7 @@ def rps_game_winner(mylist):
   if (mylist[0][1] == 'P' and mylist[1][1] == 'S' or mylist[0][1] == 'S' and mylist[1][1] == 'R' or mylist[0][1] == 'R' and mylist[1][1] == 'P'):
     winner = mylist[1]
   
-  return winner
+  return ' '.join(winner)
   
 
 #test

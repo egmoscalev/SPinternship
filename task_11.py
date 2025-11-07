@@ -12,33 +12,27 @@ class Dessert:
         self.set_calories(calories)
     
     def set_name(self,v):
-        if not isinstance(v, str):
-            if v != None:
-                print("Name should be a string. Name set to None")
-            self._name = None
-        else:
-            self._name = v
+        self.name = v
     
     def get_name(self):
-      return self._name
+      return self.name
     
     def set_calories(self, v):
-        if not isinstance(v, int or float) or v < 0:
-            if v != None:
-                print("Calories should be a non-negative number. Calories set to 0")
-            self._calories = 0
-        else:
-            self._calories = v
+        self.calories = v
     
     def get_calories(self):
-      return self._calories
+      return self.calories
         
 
     def is_healthy(self):
-        if (self._calories < 200):
-            return True
-        
-        return False
+        try:
+            if (self.calories < 200):
+                return True
+        except:
+            pass
+        finally:
+            return False
     
     def is_delicious(self):
         return True
+    

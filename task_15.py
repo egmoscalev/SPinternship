@@ -62,7 +62,6 @@ def isEnglish(string):
     
     return True
 
-
 class BlockTranspositionCipher:
 
     def __init__(self,plaintxt,key, decrypt = False):
@@ -108,10 +107,9 @@ class BlockTranspositionCipher:
 
     def set_plaintxt(self, plaintxt):
 
-        while (len(plaintxt) % self.keylen != 0):
-            plaintxt += ' '
+        if len(plaintxt) % self.keylen != 0:
+            plaintxt += ' ' * (self.keylen - (len(plaintxt) % self.keylen))
 
-        print(plaintxt)
         self.plaintxt = plaintxt
 
     def __iter__(self):
@@ -130,8 +128,9 @@ class BlockTranspositionCipher:
 
             self.current += 1
 
-            if self.decrypt:
-                result = result.replace(' ','')
+            if self.decrypt and self.current == self.n: #remove extra spaces in the last block
+                result = result.rstrip()
+            
             return result
         
         else:
@@ -140,6 +139,7 @@ class BlockTranspositionCipher:
 
 #Пример 1: Шифрование с явной итерацией по блокам
 
+"""
 text = "HELLOWORLD"
 key = "bAc"
 print("Процесс шифрования по блокам:")
@@ -165,3 +165,5 @@ for i, decrypted_block in enumerate(decipher, 1):
 decipher = BlockTranspositionCipher(encrypted, key, decrypt=True)
 decrypted = ''.join(decipher)
 print(f"\nПолный расшифрованный текст: '{decrypted}'")
+"""
+
